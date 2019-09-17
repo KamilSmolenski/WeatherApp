@@ -5,7 +5,7 @@ const Search = props => {
       <input
         type='text'
         value={props.value}
-        placeholder='Find a city'
+        placeholder='Find a cities'
         onChange={props.change}
       />
     </form>
