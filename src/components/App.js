@@ -6,6 +6,8 @@ import Search from './Search'
 class App extends Component {
   state = {
     value: '',
+    time: '',
+    weekDay: '',
     date: '',
     city: '',
     sunrise: '',
@@ -21,7 +23,12 @@ class App extends Component {
       value: e.target.value
     })
   }
+  componentDidMount () {
+    this.setState({ value: 'Warsaw' })
+  }
   componentDidUpdate (prevProps, prevState) {
+    const WeekDays = ['Sun.', 'Mon.', 'Tue.', 'Wed.', 'Thu.', 'Fri.', 'Sat.']
+    const WeekDaysIndex = new Date().getDay()
     if (this.state.value.length === 0) return
     if (prevState.value !== this.state.value) {
       const API = `http://api.openweathermap.org/data/2.5/weather?q=${
@@ -36,14 +43,17 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          const currentTime = new Date().toLocaleString()
+          const currentTime = `${new Date().getHours()}:${new Date().getMinutes()} `
+          const currentDate = new Date().toLocaleDateString()
           this.setState({
             error: false,
-            date: currentTime,
+            weekDay: WeekDays[WeekDaysIndex],
+            time: currentTime,
+            date: currentDate,
             city: this.state.value,
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
-            wind: data.wind.speed,
+            wind: data.wind.speed * 3.6 + ' km/h',
             pressure: data.main.pressure,
             temp: data.main.temp
           })

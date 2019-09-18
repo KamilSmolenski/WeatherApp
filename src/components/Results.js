@@ -3,6 +3,8 @@ import './Results.css'
 
 const Results = props => {
   const {
+    time,
+    weekDay,
     date,
     city,
     sunrise,
@@ -23,6 +25,8 @@ const Results = props => {
         <h3>
           City: <strong>{city}</strong>
         </h3>
+        <h4>{time}</h4>
+        <h4>{weekDay}</h4>
         <h4>{date}</h4>
         <h4>Temp:{temp} &#176;C</h4>
         <h4>Sunrise: {sunriseTime}</h4>
