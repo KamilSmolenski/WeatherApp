@@ -1,3 +1,7 @@
+.App {
+  background-color: cadetblue;
+}
+
 .App input,
 .App button {
   text-align: center;
