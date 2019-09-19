@@ -1,15 +1,17 @@
-import React from 'react'
+import React from "react";
+import "./Search.css";
 const Search = props => {
   return (
-    <form>
+    <form className="Form">
       <input
-        type='text'
+        className="Input"
+        type="text"
         value={props.value}
-        placeholder='Find a city'
+        placeholder="Find a city"
         onChange={props.change}
       />
     </form>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;

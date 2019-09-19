@@ -13,3 +13,8 @@
 .Results em {
   font-weight: bold;
 }
+
+.Results .MainInfo {
+  border: solid 2px grey;
+  width: 30vw;
+}

@@ -7,6 +7,9 @@ class App extends Component {
   state = {
     value: "",
     time: "",
+    humidity: "",
+    max: "",
+    min: "",
     weekDay: "",
     date: "",
     city: "",
@@ -18,7 +21,10 @@ class App extends Component {
     description: "",
     iconId: "",
     iconUrl: "",
-    error: "false",
+    error: false,
+    forecast: {
+      temp: "100",
+    },
   };
 
   handleSearchChange = e => {
@@ -42,22 +48,30 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          const currentTime = new Date(data.dt * 1000).toLocaleTimeString();
+          const currentTime = new Date().toLocaleTimeString();
           const currentDate = new Date().toLocaleDateString();
           const windSpeed = data.wind.speed * 3.6;
           const windSpeedInteger = Math.round(windSpeed);
+          let description = data.weather[0].description;
+          const capitalize = s => {
+            return s.charAt(0).toUpperCase() + s.slice(1);
+          };
+
           this.setState({
             error: false,
             weekDay: WeekDays[WeekDaysIndex],
             time: currentTime,
             date: currentDate,
-            city: this.state.value,
+            humidity: data.main.humidity,
+            min: data.main.temp_min,
+            max: data.main.temp_max,
+            city: `${this.state.value.toUpperCase()}`,
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             wind: windSpeedInteger + " km/h",
             pressure: data.main.pressure,
             temp: data.main.temp,
-            description: ` ${data.weather[0].description}`,
+            description: capitalize(description),
             iconId: data.weather[0].icon,
           });
           this.setState({
