@@ -1,0 +1,15 @@
+.SearchPanel {
+  margin: 10px auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: linear-gradient(to right, #1da1f2, #4fd4f5);
+  border-radius: 5%;
+  h1 {
+    margin: 10px auto;
+  }
+  input {
+    border-radius: 10%;
+  }
+}

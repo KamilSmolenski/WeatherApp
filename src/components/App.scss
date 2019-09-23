@@ -1,0 +1,20 @@
+.App {
+  background: linear-gradient(to right, #e1e8ed, #f5f8fa);
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  text-align: right;
+  color: #f5f8fa;
+  box-sizing: border-box;
+}
+
+.App input {
+  text-align: center;
+  margin: 20px;
+  padding: 10px 20px;
+  border: 2px solid gray;
+  transition: 0.3s;
+}
+
+.App input:hover {
+  background-color: #f2f9fe;
+  border-color: black;
+}

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import Results from "./Results";
 import Search from "./Search";
 
 class App extends Component {
   state = {
+    city: "",
     value: "",
     time: "",
     humidity: "",
@@ -12,7 +13,6 @@ class App extends Component {
     min: "",
     weekDay: "",
     date: "",
-    city: "",
     sunrise: "",
     sunset: "",
     wind: "",
@@ -33,6 +33,12 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    this.setState({
+      value: "Warsaw",
+    });
+  }
+
   componentDidUpdate(prevProps, prevState) {
     const WeekDays = ["Sun.", "Mon.", "Tue.", "Wed.", "Thu.", "Fri.", "Sat."];
     const WeekDaysIndex = new Date().getDay();
@@ -48,7 +54,16 @@ class App extends Component {
         })
         .then(response => response.json())
         .then(data => {
-          const currentTime = new Date().toLocaleTimeString();
+          console.log(data);
+          const currentTime = `${
+            new Date().getHours() < 10
+              ? "0" + new Date().getHours()
+              : new Date().getHours()
+          }:${
+            new Date().getMinutes() < 10
+              ? "0" + new Date().getMinutes()
+              : new Date().getMinutes()
+          }`;
           const currentDate = new Date().toLocaleDateString();
           const windSpeed = data.wind.speed * 3.6;
           const windSpeedInteger = Math.round(windSpeed);
@@ -56,7 +71,7 @@ class App extends Component {
           const capitalize = s => {
             return s.charAt(0).toUpperCase() + s.slice(1);
           };
-
+          console.log(data);
           this.setState({
             error: false,
             weekDay: WeekDays[WeekDaysIndex],
@@ -65,12 +80,12 @@ class App extends Component {
             humidity: data.main.humidity,
             min: data.main.temp_min,
             max: data.main.temp_max,
-            city: `${this.state.value.toUpperCase()}`,
+            city: capitalize(this.state.value),
             sunrise: data.sys.sunrise,
             sunset: data.sys.sunset,
             wind: windSpeedInteger + " km/h",
             pressure: data.main.pressure,
-            temp: data.main.temp,
+            temp: Math.round(data.main.temp),
             description: capitalize(description),
             iconId: data.weather[0].icon,
           });

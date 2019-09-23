@@ -1,16 +1,18 @@
 import React from "react";
-import "./Search.css";
+import "./Search.scss";
 const Search = props => {
   return (
-    <form className="Form">
-      <input
-        className="Input"
-        type="text"
-        value={props.value}
-        placeholder="Find a city"
-        onChange={props.change}
-      />
-    </form>
+    <div className="SearchPanel">
+      <h1>Get current weather </h1>
+      <form>
+        <input
+          type="text"
+          value={props.value}
+          placeholder="Find a city"
+          onChange={props.change}
+        />
+      </form>
+    </div>
   );
 };
 
