@@ -1,15 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.68a61ccb.chunk.css",
-    "main.js": "/static/js/main.65169103.chunk.js",
-    "main.js.map": "/static/js/main.65169103.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.107e28ba.js",
-    "runtime~main.js.map": "/static/js/runtime~main.107e28ba.js.map",
-    "static/js/2.831c99be.chunk.js": "/static/js/2.831c99be.chunk.js",
-    "static/js/2.831c99be.chunk.js.map": "/static/js/2.831c99be.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.9b9b38b3e8cd92b3e959f1e0cced896d.js": "/precache-manifest.9b9b38b3e8cd92b3e959f1e0cced896d.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.68a61ccb.chunk.css.map": "/static/css/main.68a61ccb.chunk.css.map"
+    "main.css": "/WeatherApp/./static/css/main.c36b9e9b.chunk.css",
+    "main.js": "/WeatherApp/./static/js/main.50e96285.chunk.js",
+    "main.js.map": "/WeatherApp/./static/js/main.50e96285.chunk.js.map",
+    "runtime~main.js": "/WeatherApp/./static/js/runtime~main.658f919c.js",
+    "runtime~main.js.map": "/WeatherApp/./static/js/runtime~main.658f919c.js.map",
+    "static/js/2.78b9252b.chunk.js": "/WeatherApp/./static/js/2.78b9252b.chunk.js",
+    "static/js/2.78b9252b.chunk.js.map": "/WeatherApp/./static/js/2.78b9252b.chunk.js.map",
+    "index.html": "/WeatherApp/./index.html",
+    "precache-manifest.cdb1f93d040d1783c72b3355427c603f.js": "/WeatherApp/./precache-manifest.cdb1f93d040d1783c72b3355427c603f.js",
+    "service-worker.js": "/WeatherApp/./service-worker.js",
+    "static/css/main.c36b9e9b.chunk.css.map": "/WeatherApp/./static/css/main.c36b9e9b.chunk.css.map",
+    "static/media/001-evening.svg": "/WeatherApp/./static/media/001-evening.53ceeee2.svg",
+    "static/media/001-therm-max.svg": "/WeatherApp/./static/media/001-therm-max.a5470bdd.svg",
+    "static/media/002-sunset.svg": "/WeatherApp/./static/media/002-sunset.913dfb7e.svg",
+    "static/media/002-therm-min.svg": "/WeatherApp/./static/media/002-therm-min.52d15c62.svg",
+    "static/media/003-pressure.svg": "/WeatherApp/./static/media/003-pressure.5f043128.svg",
+    "static/media/004-humidity.svg": "/WeatherApp/./static/media/004-humidity.f7efb53c.svg",
+    "static/media/005-wind.svg": "/WeatherApp/./static/media/005-wind.9737c2a4.svg",
+    "static/media/calendar.svg": "/WeatherApp/./static/media/calendar.a4b07a41.svg"
   }
 }
