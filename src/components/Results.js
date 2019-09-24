@@ -63,8 +63,10 @@ const Results = props => {
         <div className="Results__Details">
           <div className="Results__Details-Item">
             <img src={calendar} alt="calendar icon" />
+
             <h3>
-              {date} {weekDay}
+              {date} <br />
+              {weekDay}
             </h3>
           </div>
           <div className="Results__Details-Item">

@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .Results {
   display: flex;
   justify-content: space-around;
@@ -9,16 +12,17 @@
   .Results__Main {
     flex-basis: 30vw;
     background: linear-gradient(to right, #1da1f2, #3fc3f4);
-    padding: 20px;
+    padding: 50px;
     border-radius: 5%;
     margin: 15px;
     h1 {
+      margin: 15px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
       p {
-        margin: 0 auto;
+        margin: 15px;
         font-size: 1.5em;
         flex-basis: 50%;
       }
@@ -31,7 +35,7 @@
   .Results__Details {
     flex-basis: 30vw;
     background: linear-gradient(to right, #1da1f2, #3fc3f4);
-    padding: 30px;
+    padding: 20px;
     border-radius: 5%;
     margin: 15px;
     .Results__Details-Item {
@@ -43,6 +47,7 @@
       }
       img {
         width: 30px;
+        margin: 0;
       }
     }
   }
