@@ -42,7 +42,7 @@ class App extends Component {
     const WeekDaysIndex = new Date().getDay();
     if (this.state.value.length === 0) return;
     if (prevState.value !== this.state.value) {
-      const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=fb1cc9c3398275a36bdde36316bc1ca9 &units=metric`;
+      const API = `http://api.openweathermap.org/data/2.5/weather?q=${this.state.value}&APPID=cd2719d19d08b2909c6be691a47dad9c&units=metric`;
       fetch(API)
         .then(response => {
           if (response.ok) {

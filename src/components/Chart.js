@@ -12,7 +12,7 @@ class Chart extends Component {
     if (this.props.value.length === 0) return;
 
     if (prevProps.value !== this.props.value) {
-      const APIForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${this.props.value}&appid=d55849540aadcad09f2710668228f493`;
+      const APIForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${this.props.value}&appid=cd2719d19d08b2909c6be691a47dad9c`;
       fetch(APIForecast)
         .then(response => {
           if (response.ok) {
@@ -21,11 +21,16 @@ class Chart extends Component {
           throw Error(`number ${response.status}`);
         })
         .then(response => response.json())
-
         .then(data => {
-          this.setState({
-            //   How can i push data from API (data.list[X].dt) to array "labels" in this.state. i have X fourty times and then i need to send it to var labels(in render)???
-          });
+          let filteredDataArray = [];
+          for (var i = 0; i < data.list.length; i++) {
+            const filteredData = data.list[i].dt;
+            filteredDataArray.push(filteredData);
+          }
+          if (this.state.labels.length === 0) {
+            this.setState({ labels: filteredDataArray });
+            console.log(this.state.labels);
+          } else return;
         })
         .catch(error => console.log(error));
     }
@@ -33,7 +38,7 @@ class Chart extends Component {
   render() {
     const data = {
       labels: this.state.labels,
-      //   here i need to keep new array
+
       datasets: [
         {
           label: "Temperature",
