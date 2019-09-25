@@ -12,17 +12,17 @@
   .Results__Main {
     flex-basis: 30vw;
     background: linear-gradient(to right, #1da1f2, #3fc3f4);
-    padding: 50px;
+    padding: 10px;
     border-radius: 5%;
-    margin: 15px;
+    margin: 10px;
     h1 {
-      margin: 15px;
+      margin: 5px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
       p {
-        margin: 15px;
+        margin: 5px;
         font-size: 1.5em;
         flex-basis: 50%;
       }
@@ -35,9 +35,9 @@
   .Results__Details {
     flex-basis: 30vw;
     background: linear-gradient(to right, #1da1f2, #3fc3f4);
-    padding: 20px;
+    padding: 10px;
     border-radius: 5%;
-    margin: 15px;
+    margin: 10px;
     .Results__Details-Item {
       display: flex;
       justify-content: space-between;

@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 
 class Chart extends Component {
   state = {
-    data: [],
+    temp: [],
     labels: [],
     //  ^^^--- Here i want to push 40 dates(i get it from API in componentDidUpdate) and then push it to var"labels"" in render to show in chart
   };
@@ -12,7 +12,7 @@ class Chart extends Component {
     if (this.props.value.length === 0) return;
 
     if (prevProps.value !== this.props.value) {
-      const APIForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${this.props.value}&appid=cd2719d19d08b2909c6be691a47dad9c`;
+      const APIForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${this.props.value}&appid=37815682f1034a9206483cbf04ee4111&units=metric`;
       fetch(APIForecast)
         .then(response => {
           if (response.ok) {
@@ -22,14 +22,40 @@ class Chart extends Component {
         })
         .then(response => response.json())
         .then(data => {
+          let filteredDataArray2 = [];
           let filteredDataArray = [];
           for (var i = 0; i < data.list.length; i++) {
-            const filteredData = data.list[i].dt;
+            const WeekDays = [
+              "Sun.",
+              "Mon.",
+              "Tue.",
+              "Wed.",
+              "Thu.",
+              "Fri.",
+              "Sat.",
+            ];
+            const WeekDaysIndex = new Date(data.list[i].dt * 1000).getDay();
+            const filteredData = ` ${WeekDays[WeekDaysIndex]}${
+              new Date(data.list[i].dt * 1000).getHours() < 10
+                ? "0" + new Date(data.list[i].dt * 1000).getHours()
+                : new Date(data.list[i].dt * 1000).getHours()
+            }:${
+              new Date(data.list[i].dt * 1000).getMinutes() < 10
+                ? "0" + new Date(data.list[i].dt * 1000).getMinutes()
+                : new Date(data.list[i].dt * 1000).getMinutes()
+            }`;
+            const filteredData2 = data.list[i].main.temp;
+
+            filteredDataArray2.push(filteredData2);
             filteredDataArray.push(filteredData);
           }
-          if (this.state.labels.length === 0) {
-            this.setState({ labels: filteredDataArray });
-            console.log(this.state.labels);
+
+          if (prevState.value !== this.props.value) {
+            this.setState({
+              labels: filteredDataArray,
+              temp: filteredDataArray2,
+            });
+            console.log(this.state.temp);
           } else return;
         })
         .catch(error => console.log(error));
@@ -42,8 +68,8 @@ class Chart extends Component {
       datasets: [
         {
           label: "Temperature",
-          fill: false,
-          lineTension: 0.3,
+          fill: true,
+          lineTension: 0,
           backgroundColor: "rgba(75,192,192,0.1)",
           borderColor: "rgba(75,192,192,1)",
           borderCapStyle: "butt",
@@ -59,7 +85,7 @@ class Chart extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: this.state.data,
+          data: this.state.temp,
         },
       ],
     };
