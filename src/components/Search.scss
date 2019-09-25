@@ -1,15 +1,23 @@
 .SearchPanel {
   margin: 10px auto;
   width: 90%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   background: linear-gradient(to right, #1da1f2, #4fd4f5);
   border-radius: 5%;
-  h1 {
-    margin: 10px auto;
+  .Typing {
+    margin-top: 20px;
+    padding-top: 50px;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+  }
+  @media (max-width: 330px) {
+    .Typing {
+      font-size: 1.5em;
+    }
   }
   input {
+    margin-right: 50px;
+    text-align: center;
     border-radius: 10%;
   }
 }

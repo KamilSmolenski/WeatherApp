@@ -1,19 +1,26 @@
-import React from "react";
-import "./Search.scss";
+import React from 'react'
+import './Search.scss'
+import ReactTypingEffect from 'react-typing-effect'
 const Search = props => {
   return (
-    <div className="SearchPanel">
-      <h1>Get current weather </h1>
+    <div className='SearchPanel'>
+      <ReactTypingEffect
+        eraseDelay={3000}
+        speed={200}
+        text={['for today.', 'forecast for tomorrow.', 'for next 5 days.']}
+        staticText='Get weather'
+        className='Typing'
+      />
       <form>
         <input
-          type="text"
+          type='text'
           value={props.value}
-          placeholder="Find a city"
+          placeholder='Find a city'
           onChange={props.change}
         />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

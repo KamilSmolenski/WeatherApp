@@ -26,8 +26,13 @@
         font-size: 1.5em;
         flex-basis: 50%;
       }
+      @media (max-width: 469px) {
+        p {
+          font-size: 1em;
+        }
+      }
       img {
-        width: 50%;
+        width: 75%;
         margin: 0;
       }
     }
@@ -45,6 +50,13 @@
       h3 {
         line-height: 100%;
       }
+      @media (max-width: 545px) {
+        h3 {
+          font-size: 0.9em;
+          margin-left: 15px;
+        }
+      }
+
       img {
         width: 30px;
         margin: 0;
