@@ -11,7 +11,7 @@ const Search = props => {
         eraseDelay={3000}
         speed={200}
         text={["for today.", "forecast for tomorrow.", "for next 5 days."]}
-        staticText="Get weather"
+        staticText="Get off my back"
         className="Typing"
       />
       <form onSubmit={handleSubmit}>
